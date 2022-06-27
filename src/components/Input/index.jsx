@@ -83,7 +83,7 @@ const Input = forwardRef(
           />
           <ReactTooltip
             textColor="#fff"
-            backgroundColor="#f95e5a"
+            backgroundColor="#cb2722"
             type="error"
             effect="solid"
             place="top"

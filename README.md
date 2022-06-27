@@ -1,12 +1,27 @@
-<div align="center">
-    <img src="https://raw.githubusercontent.com/Jobsity/ReactChallenge/main/src/assets/jobsity_logo_small.png"/>
-</div>
+# React Calendar
 
-# React Challenge
+## Built With
 
+* [React](https://reactjs.org/)
+* [SASS](https://sass-lang.com/)
+* [Jest](https://jestjs.io/)
 
-## How to deploy
+## Getting Started
 
- - Run `npm install` | `yarn install` to install all dependencies.
- - Run `npm start`   | `yarn run` to run the app locally.
- - You can find the project running on `localhost:3000`.
+1. Install dependencies by running `npm i`.  
+
+2. Rename .env.example to .env
+
+3. Add the _Open Weather_ api key as REACT_APP_API_KEY on .env file
+
+4. Run the app with `npm start` command.
+
+## Tests:
+
+Tests were created using jest and react-testing-library.
+
+- To run tests: 
+
+```sh
+npm test
+```
