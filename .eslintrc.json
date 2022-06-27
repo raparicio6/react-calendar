@@ -1,31 +1,89 @@
 {
-  "extends": "react-app",
-  "plugins": ["prettier", "eslint-plugin-import-helpers"],
+  "plugins": ["prettier", "import", "eslint-plugin-import-helpers"],
+  "extends": [
+    "react-app",
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
   "rules": {
     "prettier/prettier": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/react-in-jsx-scope": "off",
-    "object-curly-newline": [
-      "error",
-      { "consistent": true, "minProperties": 7 }
-    ],
     "no-alert": "error",
     "no-console": "warn",
+    "eqeqeq": ["error", "always"],
+    "no-param-reassign": "error",
+
     "import-helpers/order-imports": [
-      "warn",
+      "error",
       {
-        "newlinesBetween": "always",
+        "newlinesBetween": "always", // new line between groups
         "groups": [
-          "/^react/",
           "module",
           "/^@shared/",
           ["parent", "sibling", "index"]
         ],
-        "alphabetize": {
-          "order": "asc",
-          "ignoreCase": true
-        }
+        "alphabetize": { "order": "asc", "ignoreCase": true }
       }
-    ]
+    ],
+
+    // Import
+    "import/default": "error",
+    "import/export": "error",
+    "import/extensions": [
+      "error",
+      "never",
+      {
+        "js": "never",
+        "svg": "always",
+        "scss": "always",
+        "png": "always",
+        "css": "always",
+        "json": "always"
+      }
+    ],
+    "import/first": "error",
+    "import/namespace": "error",
+    "import/no-absolute-path": "error",
+    "import/no-mutable-exports": "error",
+    "import/no-named-as-default": "error",
+    "import/no-named-as-default-member": "error",
+    "import/no-named-default": "error",
+    "import/no-self-import": "error",
+    "import/no-unresolved": "off",
+    "import/no-webpack-loader-syntax": "error",
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "groups": [
+          "builtin",
+          "external",
+          ["unknown", "internal"],
+          "parent",
+          "sibling",
+          "index",
+          "type"
+        ]
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "import/no-deprecated": "warn",
+    "import/no-extraneous-dependencies": "error",
+    "import/no-unassigned-import": "warn",
+    "import/no-duplicates": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "webpack": {
+        "root": ["./src"],
+        "extensions": [".js", ".jsx"]
+      }
+    }
   }
 }

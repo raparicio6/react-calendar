@@ -1,0 +1,68 @@
+.day {
+  border: 1px solid #dadce0;
+  margin: 0 -1px -1px 0;
+  cursor: pointer;
+  height: 150px;
+
+  &-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  &-current {
+    background-color: #1a73e8;
+    border-radius: 50%;
+    color: #fff;
+    width: 20px;
+    text-align: center;
+  }
+
+  &-event-content {
+    color: #fff;
+    align-self: flex-start;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 5px;
+    max-width: 95%;
+    margin-left: 5px;
+
+    p {
+      margin-left: 2px;
+      white-space: nowrap;
+      width: 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 12px;
+    }
+
+    &-all {
+      display: flex;
+      justify-content: center;
+      margin-top: 5px;
+      z-index: 10;
+
+      p {
+        border: 1px solid red;
+        color: #fff;
+        text-align: center;
+        border-radius: 50%;
+        width: 30px;
+        background-color: red;
+      }
+    }
+
+    &-red {
+      background-color: red;
+    }
+
+    &-blue {
+      background-color: blue;
+    }
+
+    &-green {
+      background-color: green;
+    }
+  }
+}

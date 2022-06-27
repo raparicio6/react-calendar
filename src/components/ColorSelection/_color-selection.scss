@@ -1,0 +1,42 @@
+.color {
+  display: flex;
+
+  p {
+    font-weight: bold;
+  }
+
+  img {
+    margin-right: 1rem;
+  }
+
+  &-selection {
+    display: flex;
+
+    span {
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      margin-right: 0.5rem;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &-red {
+      background-color: red;
+    }
+
+    &-blue {
+      background-color: blue;
+    }
+
+    &-green {
+      background-color: green;
+    }
+
+    &-pointer {
+      cursor: pointer;
+    }
+  }
+}

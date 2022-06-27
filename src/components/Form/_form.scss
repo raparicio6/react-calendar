@@ -1,0 +1,16 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  input,
+  textarea {
+    margin-bottom: 1rem;
+  }
+
+  &-footer {
+    align-self: flex-end;
+    > :first-child {
+      margin-right: 1rem;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.separator {
+  width: 100%;
+  border-top: 1px solid black;
+}
+
+.info {
+  input,
+  textarea {
+    margin-bottom: 1rem;
+  }
+
+  hr {
+    margin: 10px 0;
+  }
+
+  &-group {
+    display: flex;
+    align-items: center;
+
+    &-content {
+      margin-top: 5px;
+      > button {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}

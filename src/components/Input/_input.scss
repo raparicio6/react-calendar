@@ -1,0 +1,110 @@
+.search-field {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  margin-right: 2rem;
+
+  &-icon {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+
+  &-input {
+    padding-left: 45px;
+  }
+}
+
+.search-field-icon {
+  width: 1.69rem;
+  height: 1.69rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &-error-icon {
+    position: absolute;
+    right: 10px;
+    top: 30px;
+  }
+
+  &-input {
+    background-color: $input-background-default;
+    border: 1px solid $input-background-default;
+    outline: none;
+    padding: 0.75rem;
+    width: 100%;
+    border-radius: 5px;
+    transition: all 200ms ease;
+
+    &::placeholder {
+      color: $input-text-placeholder;
+    }
+
+    &:focus {
+      background: $input-background-focused;
+      border: 1px solid $input-background-focused;
+      transition: all 200ms ease;
+    }
+
+    &-error,
+    &-error:focus {
+      transition: all 200ms ease;
+      background-color: $input-error-background;
+      color: $input-error-text;
+      border: 1px solid $input-error-border;
+      padding-right: 2.5rem;
+    }
+
+    &-error {
+      &::placeholder {
+        color: $input-error-text;
+      }
+    }
+  }
+
+  &-label {
+    font-weight: 600;
+    color: $thm-text;
+  }
+
+  &-textarea {
+    width: 100%;
+    height: $textarea-height;
+    color: $input-text;
+    border: 1px solid $input-background-default;
+    background-color: $input-background-default;
+    border-radius: 5px;
+    padding: 0.75rem;
+    outline: none;
+    resize: none;
+    transition: all 200ms ease;
+
+    &:focus {
+      transition: all 200ms ease;
+      border: 1px solid $input-background-focused;
+      background: $input-background-focused;
+    }
+
+    &::placeholder {
+      color: $input-text-placeholder;
+    }
+
+    &-error,
+    &-error:focus {
+      padding-right: 2.5rem;
+      transition: all 200ms ease;
+      background-color: $input-error-background;
+      color: $input-error-text;
+      border: 1px solid $input-error-border;
+    }
+
+    &-error::placeholder {
+      color: $input-error-text;
+    }
+  }
+}
