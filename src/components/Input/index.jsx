@@ -3,6 +3,8 @@ import ReactTooltip from "react-tooltip";
 
 import warningImg from "../../assets/warning.svg";
 
+import styles from "./input.module.scss";
+
 const Input = forwardRef(
   (
     {
@@ -19,8 +21,12 @@ const Input = forwardRef(
     },
     ref
   ) => (
-    <div className={`field ${error ? "field-input-container-error" : ""}`}>
-      <label htmlFor={name} className="field-label">
+    <div
+      className={`${styles.field} ${
+        styles[error ? "field-input-container-error" : ""]
+      }`}
+    >
+      <label htmlFor={name} className={styles["field-label"]}>
         {label}
       </label>
       {type === "text" && (
@@ -31,7 +37,9 @@ const Input = forwardRef(
             type={type}
             name={name}
             id={name}
-            className={`field-input ${error ? "field-input-error" : ""}`}
+            className={`${styles["field-input"]} ${
+              styles[error ? "field-input-error" : ""]
+            }`}
             placeholder={placeholder}
             value={value}
             ref={ref}
@@ -52,7 +60,9 @@ const Input = forwardRef(
           ref={ref}
           onChange={onChange}
           onBlur={onBlur}
-          className={`field-textarea ${error ? "field-textarea-error" : ""}`}
+          className={`${styles["field-textarea"]} ${
+            styles[error ? "field-textarea-error" : ""]
+          }`}
         />
       )}
 
@@ -69,14 +79,16 @@ const Input = forwardRef(
           ref={ref}
           onChange={onChange}
           onBlur={onBlur}
-          className={`field-input ${error ? "field-input-error" : ""}`}
+          className={`${styles["field-input"]} ${
+            styles[error ? "field-input-error" : ""]
+          }`}
         />
       )}
 
       {error && (
         <>
           <img
-            className="field-error-icon"
+            className={styles["field-error-icon"]}
             data-tip={error}
             src={warningImg}
             alt="Warning"

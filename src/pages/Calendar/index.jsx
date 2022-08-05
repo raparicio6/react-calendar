@@ -9,6 +9,8 @@ import { CalendarContext } from "../../hooks/calendarContext";
 import { useModal } from "../../hooks/useModal";
 import { getMonth } from "../../utils/dates";
 
+import styles from "./calendar.module.scss";
+
 const Calendar = () => {
   const { monthIndex, showModal, setShowModal, setEvent } =
     useContext(CalendarContext);
@@ -33,9 +35,9 @@ const Calendar = () => {
   };
 
   return (
-    <div className="calendar">
+    <div className={styles.calendar}>
       <Information />
-      <div className="calendar_content">
+      <div className={styles["calendar-content"]}>
         <Month month={month} />
         <CalendarModal className="react-modal-content">
           <ButtonIcon

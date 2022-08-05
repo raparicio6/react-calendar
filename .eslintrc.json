@@ -1,5 +1,5 @@
 {
-  "plugins": ["prettier", "import", "eslint-plugin-import-helpers"],
+  "plugins": ["prettier", "import"],
   "extends": [
     "react-app",
     "eslint:recommended",
@@ -15,19 +15,6 @@
     "no-console": "warn",
     "eqeqeq": ["error", "always"],
     "no-param-reassign": "error",
-
-    "import-helpers/order-imports": [
-      "error",
-      {
-        "newlinesBetween": "always", // new line between groups
-        "groups": [
-          "module",
-          "/^@shared/",
-          ["parent", "sibling", "index"]
-        ],
-        "alphabetize": { "order": "asc", "ignoreCase": true }
-      }
-    ],
 
     // Import
     "import/default": "error",

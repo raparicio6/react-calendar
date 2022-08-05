@@ -1,5 +1,7 @@
 import ReactModal from "react-modal";
 
+import styles from "./modal.module.scss";
+
 const Modal = ({
   isOpen,
   onCloseModal,
@@ -10,8 +12,8 @@ const Modal = ({
   <ReactModal
     isOpen={isOpen}
     onRequestClose={onCloseModal}
-    overlayClassName="react-modal"
-    className={className}
+    overlayClassName={styles["react-modal"]}
+    className={styles[className]}
     shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
     ariaHideApp={false}
   >

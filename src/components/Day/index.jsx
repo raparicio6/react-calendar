@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useCallback } from "react";
 import ReactTooltip from "react-tooltip";
 
 import { ReactComponent as CloseIcon } from "../../assets/close.svg";
@@ -7,6 +7,8 @@ import { useModal } from "../../hooks/useModal";
 import { DATE_DIGITS } from "../../utils/dates";
 import ButtonIcon from "../Button/Icon";
 import EventInfo from "../EventInfo";
+
+import styles from "./day.module.scss";
 
 const Day = ({ day, rowIndex }) => {
   const { showModal, setShowModal, setDay, events, setEvent } =
@@ -47,39 +49,44 @@ const Day = ({ day, rowIndex }) => {
     }
   }, [dayEvents]);
 
-  const getClass = () => {
+  const getClass = useCallback(() => {
     const today = new Date().setHours(0, 0, 0, 0);
     return day.setHours(0, 0, 0, 0) === today ? "day-current" : null;
-  };
+  }, [day]);
 
-  const onDayClick = () => {
+  const onDayClick = useCallback(() => {
     setShowModal(!showModal);
     setDay(day);
-  };
+  }, [showModal, day, setShowModal, setDay]);
 
-  const onEventsClick = (event) => {
-    event.stopPropagation();
-    setOpenEvents(!openEvents);
-  };
+  const onEventsClick = useCallback(
+    (event) => {
+      event.stopPropagation();
+      setOpenEvents(!openEvents);
+    },
+    [openEvents]
+  );
 
   return (
     <>
-      <div className="day" onClick={onDayClick}>
-        <header className="day-header">
+      <div className={styles.day} onClick={onDayClick}>
+        <header className={styles["day-header"]}>
           {rowIndex === 0 && (
             <p>
-              <strong>
+              <strong className={styles["day-header-strong"]}>
                 {day.toLocaleString("en-us", { weekday: "short" })}
               </strong>
             </p>
           )}
-          <p className={getClass()}>{day.getDate()}</p>
+          <p className={styles[getClass()]}>{day.getDate()}</p>
         </header>
 
-        <div className="day-event-container">
+        <div className={styles["day-event-container"]}>
           {dayEvents.slice(0, 3).map((event, index) => (
             <div
-              className={`day-event-content day-event-content-${event.color}`}
+              className={`${styles["day-event-content"]} ${
+                styles[`day-event-content-${event.color}`]
+              }`}
               onClick={() => setEvent(event)}
               key={index}
             >
@@ -91,7 +98,7 @@ const Day = ({ day, rowIndex }) => {
           ))}
 
           {dayEvents.length > 2 && (
-            <span className="day-event-content-all">
+            <span className={styles["day-event-content-all"]}>
               <p onClick={onEventsClick} data-tip="All events">
                 {dayEvents.length}
               </p>
@@ -100,7 +107,7 @@ const Day = ({ day, rowIndex }) => {
           )}
         </div>
       </div>
-      <CalendarModal className="react-modal-details">
+      <CalendarModal className={styles["react-modal-details"]}>
         <h1>All Events</h1>
         <ButtonIcon
           onClick={onEventsClick}

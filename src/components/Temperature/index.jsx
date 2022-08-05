@@ -1,8 +1,10 @@
 import thermometerImg from "../../assets/thermometer.svg";
 
+import styles from "./temperature.module.scss";
+
 const Temperature = ({ event }) => {
   return (
-    <div className="temperature">
+    <div className={styles.temperature}>
       <img src={thermometerImg} alt="Temperature" />
       {event?.temperature ? (
         <>
