@@ -23,7 +23,7 @@ export const formatDate = (date) =>
     minute: "2-digit",
   });
 
-export const getTzoffset = new Date().getTimezoneOffset() * 60000; // offset in milliseconds
+export const getTzoffset = () => new Date().getTimezoneOffset() * 60000; // offset in milliseconds
 
 export const DATE_AND_TIME_DIGITS = 16;
 export const DATE_DIGITS = 10;
